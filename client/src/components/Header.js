@@ -15,7 +15,7 @@ class Header extends Component {
       case null:
       return (<li>Still loading...</li>);
       case false:
-      return (<li><a href="/auth/google">SIGN IN</a></li>);
+      return (<li><Link href="/auth/google">SIGN IN</Link></li>);
       default:
        return [
          <li key="1"><Payment /></li>,
@@ -26,6 +26,7 @@ class Header extends Component {
    }
 
   render() {
+    console.log('[AUTH]', this.props.auth);
     return (
       <div>
         <nav>
