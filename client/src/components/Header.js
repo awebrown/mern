@@ -1,13 +1,8 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import Payment from './Payments';
-
-// <span>
-//   <li><a href="/surveys">Dashboard</a></li>
-//   <li><a href="/surveys/new">New Survey</a></li>
-// </span>
+import { connect } from 'react-redux';
 
 class Header extends Component {
   renderContent() {
@@ -15,7 +10,7 @@ class Header extends Component {
       case null:
       return (<li>Still loading...</li>);
       case false:
-      return (<li><Link href="/auth/google">SIGN IN</Link></li>);
+      return (<li><a href="/auth/google">SIGN IN</a></li>);
       default:
        return [
          <li key="1"><Payment /></li>,
@@ -26,7 +21,6 @@ class Header extends Component {
    }
 
   render() {
-    console.log('[AUTH]', this.props);
     return (
       <div>
         <nav>
