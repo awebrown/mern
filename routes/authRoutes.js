@@ -1,7 +1,6 @@
 const passport = require('passport');
 
 module.exports = (app) => {
-
   app.get('/auth/google',
     passport.authenticate('google', {
       scope: ['profile', 'email']
@@ -15,18 +14,12 @@ module.exports = (app) => {
     }
   );
 
-  app.get('/api/logout',
-    (req, res) => {
-      console.log('logging out');
+  app.get('/api/logout', (req, res) => {
       req.logout();
       res.redirect('/');
   });
 
-  app.get('/api/current_user',
-    (req, res) => {
-      console.log('[request]', req);
-      console.log('[response]', res);
+  app.get('/api/current_user', (req, res) => {
       res.send(req.user);
   });
-
 };
